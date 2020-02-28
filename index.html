@@ -34,16 +34,15 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li class="active"><a href="#">Blog</a></li>
-							<li><a href="#">Projects</a></li>
+							<li class="active"><a href="#">Projects</a></li>
 							<li><a href="#">Gallery</a></li>
 							<li><a href="#">Resume</a></li>
 							<li><a href="#ContactMe">Contact Me</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/fenilshingala/" class="icon brands fa-linkedin">
+							<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands fa-linkedin">
 								<span class="label">LinkedIn</span></a></li>
-							<li><a href="https://github.com/fenilshingala" class="icon brands fa-github">
+							<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands fa-github">
 								<span class="label">GitHub</span></a></li>
 						</ul>
 					</nav>
@@ -51,7 +50,7 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Featured Post -->
+						<!-- Ray Tracing Reflections -->
 							<article class="post featured">
 								<!-- <header class="major"> -->
 								<header>
@@ -65,13 +64,14 @@
 								</ul>
 							</article>
 
-						<!-- Posts -->
 							<section class="posts">
+							
+							<!-- Ray Tracing Basics -->
 								<article>
 									<header>
 										<span class="date">February 21, 2020</span>
-										<h2><a href="#">VK_NV_ray_tracing<br/>
-										Hello World</a></h2>
+										<h2>VK_NV_ray_tracing<br/>
+										Hello World</h2>
 									</header>
 									<a href="#" class="image fit"><img src="images/RayTracingBasics.png" alt="" /></a>
 									<p>My hello world to the Nvidia's Turing extension for Vulkan.</p>
@@ -79,12 +79,74 @@
 										<li><a href="#" class="button">Full Story</a></li>
 									</ul>
 								</article>
-								<article>
-									<p>More coming soon!</p>
-								</article>
-							</section>
 
-						<!-- Footer -->
+							<!-- PBR -->
+								<article>
+									<header>
+										<h2>PBR<br/>
+										(Physically Based Rendering)
+										</h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/PBR.png" alt="" /></a>
+									<p>Material based pipeline with micro-facets lighting model to simulate real time graphics</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+
+							<!-- Deferred -->
+								<article>
+									<header>
+										<h2>Deferred Rendering</h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/Deferred.png" alt="" /></a>
+									<p>Using Multiple Render Targets in first pass to store needed values which will be used in the next pass for lighting calculations</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+
+							<!-- PCF Shadows -->
+								<article>
+									<header>
+										<h2>Shadows</h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/Shadows.png" alt="" /></a>
+									<p>Percentage-closer filtering shadows to avoid sharp edges <br><br ></p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+
+							<!-- 2.5D Game -->
+								<article>
+									<header>
+										<h2>2.5D Game</h2>
+									</header>
+									<a href="#" class="image fit"><img src="images/Robotest.jpg" alt="" /></a>
+									<p>DigiPen has been a great place for working in team to develop a game each semester. In this one, I've worked on Engine and Tools</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+
+							<!-- RTTR -->
+								<article>
+									<header>
+										<h2>Run Time Type Reflections</h2>
+									</header>
+									<p>No more if-else and a long Serialize description for every component you add. Though you need to register every component class and their data members.<br>
+									But it was worth the effort since it made serialization and editor super easy in terms of scaling.<br><br>
+									<a href="https://github.com/fenilshingala/Robotest/blob/master/FlyEngine/src/Utilities/Reflection.cpp" target="_blank"> <font color="#1892ef">Here</font> </a> is a full source code to reflection file that I wrote to use
+									<a href="https://www.rttr.org/" target="_blank"> <font color="#1892ef">RTTR</font> </a> library. Feel free to also checkout editor or whole engine in general.
+									</p><br>
+									<ul class="actions special">
+										<li><a href="#" class="button">Full Story</a></li>
+									</ul>
+								</article>
+							
+							</section>
+						
 							<!-- <footer>
 								<div class="pagination"> -->
 									<!--<a href="#" class="previous">Prev</a>-->
@@ -112,9 +174,9 @@
 							<section>
 								<h3>Social</h3>
 								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/fenilshingala/" class="icon brands alt fa-linkedin">
+									<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands alt fa-linkedin">
 										<span class="label">LinkedIn</span></a></li>
-									<li><a href="https://github.com/fenilshingala" class="icon brands alt fa-github">
+									<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands alt fa-github">
 										<span class="label">GitHub</span></a></li>
 								</ul>
 							</section>
