@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fenil Shingala | RTTR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+<!-- Body -->
+	<body class="is-preload">
+
+	<!-- Wrapper -->
+		<div id="wrapper" class="fade-in">
+			<br><br>
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="#">Projects</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Resume</a></li>
+					<li><a href="#ContactMe">Contact Me</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands fa-linkedin">
+						<span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands fa-github">
+						<span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+			<!-- Post -->
+				<section class="post">
+					<h2>Run Time Type Reflection</h2>
+					<span class="date">Mar. 9, 2019</span><br>
+					<p>
+						Hi.<br/>
+						<div class="box">
+						<b>Problem/Motivation</b>:<br/>
+						<span class="image"><img src="images/ComponentList.png"></span><br/>
+						<span style="font-size:93%;">code snippet from my first game engine</span> <br/>
+						</div>
+
+						Now imagine if your game has 15 components. Every time you add a component you have to make changes in various parts of your game engine, like component manager, where you might have Add and Get component methods, enums of components; in Serialization & Deserialization. And god knows where else.<br/><br/>
+						
+						As your game grows, you will definiately keep adding many components. Every time you have to make sure to go to all these places and make changes to avoid any issues.<br/><br/>
+						This is just a start of getting things worst. Let's say if you design a level editor, you want to show all your components and their data members for given game object. Or when you add enum type for a new game object.<br/><br/>
+						
+						Your code will soon be filled with  if.. else if.. else if..<br/>
+						There is a better approach for this. It's called Run Time Type Reflection.<br/><br/>
+						
+						Good References:<br/>
+						<a href="https://www.rttr.org/"><font color="#1892ef">https://www.rttr.org/</font></a><br/>
+						<a href=""><font color="#1892ef">Gamasutra		</font></a><br/>
+						<a href=""><font color="#1892ef">Jesseshapiro	</font></a><br/>
+					</p>
+				</section>
+				<section class="post">
+					<span class="date">Mar. 25, 2019</span><br>
+					<p>
+						Hi.<br/><br/>
+						RTTR has ability to register classes, data members, functions, enumerators and much more.<br/>
+						<dl>	<dt>Registration</dt>	</dl>
+						<pre><code>RTTR_REGISTRATION
+{
+    rttr::registration::class_<Transform>("Transform")
+
+         .constructor()
+         .property("Position", &Transform::mPos)
+         .property("Scale", &Transform::mScale)
+         .property("Rotation", &Transform::mRotate);
+
+         .method("Init", &Transform::Init);
+}</code></pre>
+					</p>
+
+					<dl>	<dt>Use</dt>	</dl>
+					<pre><code>rttr::type component = rttr::type::get_by_name("Transform");
+
+rttr::constructor ctor = component.get_constructor();
+rttr::variant obj = ctor.invoke();
+
+Component* tr = &(obj.convert<Component>());
+obj->AddComponent(tr);
+
+rttr::instance inst = *tr;
+
+for (auto prop : component.get_properties())
+{
+    if(prop.get_type() == rttr::type::get<float>())
+    {
+        float data = json["property_name"].GetFloat();
+        prop.set_value(tr, data);
+    }
+}</pre></code>
+					<p>
+						This is just an idea of how type reflections can ease everything. I will upload my whole work on github soon.
+						<br/><br/>
+						I have set up Deserialization and Serialization using rttr such as I don't have to rewrite any of my code again even if I add new components. You still need to register every components and their properties if you want them to be Deserialized and Serialized. I also have Enumeration reflected which removes string to enum if conditions.
+						<br/><br/>
+						Moreover, you can use rttr for method invoking, which can be pretty useful. In my case, I use them for component pool constructors and destructors. So I don't have to write initialization of my components each time I add new.
+						<br/><br/>
+						If you want an example of how you can use it, check out my <a href="https://github.com/fenilshingala/Robotest/" target="_blank"><font color="#1892ef">github repo</font></a>. Feel free to go through Reflection and Editor code to see rttr references.<br/><br/>
+						That's about it. Cheers!
+					</p>
+				</section>
+				<h2 id="ContactMe"> <center>Contact Me</center> </h2>
+			</div>
+		</div>
+		
+	<!-- Footer -->
+
+		<footer id="footer">
+			<section class="split contact">
+				<section>
+					<h3>Email</h3>
+					<p>shingala.fenil@gmail.com</p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands alt fa-linkedin">
+							<span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands alt fa-github">
+							<span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

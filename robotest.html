@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fenil Shingala | Robotest</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+<!-- Body -->
+	<body class="is-preload">
+
+	<!-- Wrapper -->
+		<div id="wrapper" class="fade-in">
+			<br><br>
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="#">Projects</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Resume</a></li>
+					<li><a href="#ContactMe">Contact Me</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands fa-linkedin">
+						<span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands fa-github">
+						<span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+			<!-- Post -->
+				<section class="post">
+					<h2>Robotest</h2>
+					<span class="date">Jan. 10, 2019</span><br>
+					<iframe width="600" height="402"
+							src="https://www.youtube.com/watch?v=vzX1KOH8Rd8">
+					</iframe>
+					<br/><br/>
+					<header>
+						<h2>Behind the scenes</h2>
+					</header>
+					<span class="image"><img src="images/ECS.png" width="500" height="352"></span><br/>
+					<b><u><a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank">Entity Component System</a></u></b><br/><br/>
+					Here's the hand made not so clear diagram of the architecture of the game engine. I'm currently working on this as a school project to make a game. This diagram represents what I've implemented so far. Let me make my views clear on this. Implementation of Entity Component System(ECS) varies & there's no exact implementation.
+					<br/><br/>
+					Previously I have implemented a component based architecture for the game engine which was working perfectly fine, with data driven, deserialised and all. But the problem with that architecture is that as you add functionalities and more and more game specific behaviours in this, it becomes tightly coupled. Whereas whole point of component based architecture is to have independent components tied to a single object instead of classic inheritance model which introduces complex annoying hierarchies. Plus, this architecture can't handle as many objects as an ECS can handle.
+					<br/><br/>
+					So to overcome all of this, I'm trying now to implement an Entity Component System(wiki) which will hopefully work out as I've expected. This system basically consists of three main parts; as the name suggests-
+					<br/><br/>
+					             <b>Entities</b> - which is nothing but literally an " id " which represents each unique object in the game at a time.<br/>
+
+					             <b>Components</b> - which are data packages: they are container which only contains raw data.<br/>
+
+					             <b>Systems</b> - which has all the logic that defines behaviour of the object based on components they have.<br/>
+					<br/>
+					Here systems play most important role. Each system is related with particular component, which they update every frame.<br/>
+
+					For example, Render system has relation only with transform and sprite components, so this system takes list of those components and update them according to its need(render in this case). Similarly, Physics System updates, let's say, Rigid Body Component. Moreover, systems won't have any idea about game objects at all.<br/><br/>
+
+					One of the most important parts of any game engine, or even any systems, is memory management. I have implemented here a List-Map structure for object pool; about which I'll be writing soon. Also as I keep adding functionalities to this engine, I will keep sharing it. Until then, Peace!
+
+				</section>
+				<h2 id="ContactMe"> <center>Contact Me</center> </h2>
+			</div>
+		</div>
+		
+	<!-- Footer -->
+
+		<footer id="footer">
+			<section class="split contact">
+				<section>
+					<h3>Email</h3>
+					<p>shingala.fenil@gmail.com</p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands alt fa-linkedin">
+							<span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands alt fa-github">
+							<span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
