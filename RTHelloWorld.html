@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fenil Shingala | RayTracing Hello</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+<!-- Body -->
+	<body class="is-preload">
+
+	<!-- Wrapper -->
+		<div id="wrapper" class="fade-in">
+			<br><br>
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="#">Projects</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Resume</a></li>
+					<li><a href="#ContactMe">Contact Me</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands fa-linkedin">
+						<span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands fa-github">
+						<span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+			<!-- Post -->
+				<section class="post">
+					<h2>NVIDIA Vulkan Ray Tracing</h2>
+					<span class="date">Mar. 9, 2020</span><br>
+					<div class="box">
+						<h3>Basics:</h3>
+						<p>
+							There is a detailed article of <a href="https://developer.nvidia.com/rtx/raytracing/vkray" target="_blank"><font color="#1892ef">Nvidia</font></a> to start learning raytracing. But here are some key points to consider:<br/> 
+							<ul>
+								<li>Enable VK_NV_ray_tracing device extension.</li>
+								<li>Build Bottom Level Acceleration Structure- holding actual scene geometry and vertex data</li>
+								<li>Build Top Level Acceleration Structure- holding instance data and transformation matrix</li>
+								<li>Update a single set of descriptor set containing all necessary information to render a scene. Ex., all the material textures, acceleration structure, output image, vertex and index buffers, uniforms data</li>
+								<li>3 Shaders: <em>Ray Generation, Miss</em> and <em>Closest Hit</em></li>
+								<li>Create Shader Binding Table containing shader handles of the 3 shaders mentioned above</li>
+							</ul>
+							<a href="https://github.com/fenilshingala/Phoenix/blob/master/Phoenix/App/Test/RayTracingBasic.cpp" target="_blank"><font color="#1892ef">Here</font></a> is my implementation to render a triangle.
+						</p>
+					</div>
+					<div class="box">
+						<h3>Problems encountered:</h3>
+						<ul>
+							<li>
+								<p>RayTracingPipelineNV creation error.</p>
+								<span class="image"><img src="images/PipelineError.png" width="80%" height="80%"></span><br/>
+								<p>
+									A programmer's nightmare: <em>"This was a nullptr"</em> or <em>"Exception thrown: read access violation"</em><br/>
+									Yes I've been there too more often than not! This took me quiet some time to understand and resolve.<br/>
+									<span class="image"><img src="images/PipelineSolution.png" width="80%" height="80%"></span><br/>
+									You see that for loop; I didn't explicitly assign initial values to every variables in shader stage info struct, so they were garbage. It's like Vulkan's moto: <em>Be Explicit.</em><br/>
+									Well this was a minor problem but it took a while to get here. More accurate: Initialize structs with <em>{}</em>.<br/>
+									<pre><code>VkPipelineShaderStageCreateInfo shaderStages{};</code></pre>
+								</p>
+							</li>
+							<li>
+								<p>
+									Infamous black screen.<br/>
+									You should know where to look at! I didn't.<br/>
+									Initially I didn't implement a camera. So, I was putting origin for ray generation in shader vec3(0,0,0). And guess where my traingle was getting rendererd. Origin!<br/>
+									<span class="image"><img src="images/BlackScreen.png" width="80%" height="80%"></span><br/>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<h2 id="ContactMe"> <center>Contact Me</center> </h2>
+			</div>
+		</div>
+		
+	<!-- Footer -->
+
+		<footer id="footer">
+			<section class="split contact">
+				<section>
+					<h3>Email</h3>
+					<p>shingala.fenil@gmail.com</p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands alt fa-linkedin">
+							<span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands alt fa-github">
+							<span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
