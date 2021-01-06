@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fenil Shingala | PBR</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+<!-- Body -->
+	<body class="is-preload">
+
+	<!-- Wrapper -->
+		<div id="wrapper" class="fade-in">
+			<br><br>
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="#">PBR</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="Resume.html">Resume</a></li>
+					<li><a href="#ContactMe">Contact Me</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands fa-linkedin">
+						<span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands fa-github">
+						<span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+				<!-- Post -->
+				<section class="post">
+					<h2>Physically Based Rendering</h2>
+					<h3>Microfacet surface model</h3>
+					<p>
+						Consider any surface as a pack of facets like in diamond. In rougher surfaces, these facets are more chaotically aligned than in smoother surfaces. PBR uses this theory to imitate surface property statistically, by defining a factor "<b>roughness</b>".<br/>
+						Halfway vector:<br/>
+						The more these hlafway vectors are aligned to the incoming light, the more stronger will be the reflections.
+					</p>
+					<h3>Energy Conservation</h3>
+					<p>
+						When a light ray hits a surface, it splits into 2 parts: <b>Reflection</b> and <b>Refraction</b><br/>
+						In PBR, we preserve the law of energy conservation by first finding Reflection part(Specular) and then Refraction part(Diffuse) which is "1.0 - (Reflection)", thereby conserving total energy.
+					</p>
+					<h3>Reflectance Equation</h3>
+					<p>
+						All the magic of having amazing visuals is this equation here.<br/>
+						<br/>
+						Here, we solve this equation numerically by taking small steps in a hemisphere around a <br/>
+						Main terms of interest: <b>L</b> and <b>BRDF</b> term.<br/>
+					</p>
+					<dl>
+						<dt>Term L</b></dt>
+						<dd>
+							<p>This represents the <b>Radiance</b> at point "p" w.r.t. incoming direction vector "Wi"</p>
+						</dd>
+
+						<dt>BRDF Term</dt>
+						<dd></dd>
+					</dl>
+				</section>
+
+				<section class="post">
+					<h2>Website References:</h2>
+					<a href="https://learnopengl.com/PBR/Theory" target="_blank">LearnOpenGL</a>
+					<br/><br/>
+				</section>
+				<h2 id="ContactMe"> <center>Contact Me</center> </h2>
+			</div>
+		</div>
+		
+	<!-- Footer -->
+
+		<footer id="footer">
+			<section class="split contact">
+				<section>
+					<h3>Email</h3>
+					<p>shingala.fenil@gmail.com</p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands alt fa-linkedin">
+							<span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands alt fa-github">
+							<span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

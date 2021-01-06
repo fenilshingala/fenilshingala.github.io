@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Fenil Shingala | Vulkan</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+
+<!-- Body -->
+	<body class="is-preload">
+
+	<!-- Wrapper -->
+		<div id="wrapper" class="fade-in">
+			<br><br>
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li class="active"><a href="#">Vulkan</a></li>
+					<li><a href="#">Gallery</a></li>
+					<li><a href="Resume.html">Resume</a></li>
+					<li><a href="#ContactMe">Contact Me</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands fa-linkedin">
+						<span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands fa-github">
+						<span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+				<!-- Post -->
+				<section class="post">
+					<h2>Shader Resources</h2>
+					<p>
+					Resources in Vulkan are generally shader inputs and outputs which resides in memory.<br/>These are invoked/referenced via <b>"Descriptors"</b>. Most of these resources are generalized, but there are specialized ones- Render Targets, Vertex Inputs- which are specialized by hardware vendors.
+					</p>
+					
+					<p>
+					<b>Buffers</b> and <b>Textures</b>: These are arrays of data and can be read and/or write to: depending on how you set them up.<br/>
+					
+					<b>Samplers</b>: These are parameter sets for looking up data into images, filtering them and computing the coordinates that you're going to use to address the image.<br/>
+					
+					<b>Input Attachments</b>: They are special kind of unfiltered images.<br/>
+
+					<b>Vertex Inputs</b>: Most of the hardware has vertex input and fetch as a fixed function stage. For Vulkan, we have to provide shader binding information for these inputs.<br/>
+					</p>
+					
+					<dl>
+					<dt>Vulkan Descriptors</b></dt>
+					<dd>
+						<p>They are just handles to the vulkan objects and contains additional information like type and metadata. This allows api to make connection between actual application resource and shader.</p>
+					</dd>
+					<dt>Descriptor Sets</dt>
+					<dd>
+						<p>They are just the way of organizing resources into sort of blocks.<br/>
+						Firstly, you define a layout, where you specify shader resource's data- binding, type, stage it is going to be used in etc. This is called a <b>Descriptor Set Layout.</b> These layouts are like blueprints of shader resources and you can stamp out descriptor sets out of these layouts.<br/>
+						Usefulness: If multiple pipelines share the same shader bindings then even if you change the pipeline, descriptors live on. The api takes care of this.</p>
+					</dd>
+					<dt>Descriptor Pool</dt>
+					<dd>
+						<p>Descriptors cannot be directly allocated, instead you can create a pool specifying type of descriptors and maximum sets of each and then, you can allocate individual descriptors from the pool.</p>
+					</dd>
+					</dl>
+				</section>
+
+				<section class="post">
+					<h2>Website References:</h2>
+					<a href="https://www.khronos.org/registry/vulkan/specs/1.1/html/vkspec.html" target="_blank">Vulkan Spec</a><br/>
+					<a href="https://vulkan-tutorial.com/" target="_blank">Vulkan-Tutorial</a>
+					<br/><br/>
+					<h2>YouTube:</h2>
+					<a href="https://www.youtube.com/watch?v=Px4NW_QcjmQ" target="_blank">Feeding your shaders</a>
+				</section>
+				<h2 id="ContactMe"> <center>Contact Me</center> </h2>
+			</div>
+		</div>
+		
+	<!-- Footer -->
+
+		<footer id="footer">
+			<section class="split contact">
+				<section>
+					<h3>Email</h3>
+					<p>shingala.fenil@gmail.com</p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="https://www.linkedin.com/in/fenilshingala/" target="_blank" class="icon brands alt fa-linkedin">
+							<span class="label">LinkedIn</span></a></li>
+						<li><a href="https://github.com/fenilshingala" target="_blank" class="icon brands alt fa-github">
+							<span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
